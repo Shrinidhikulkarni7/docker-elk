@@ -1,8 +1,11 @@
 filebeat.inputs:
-- type: docker
-  containers.ids: '*'
-  processors:
-    - add_docker_metadata: ~
+        #- type: docker
+        #containers.ids: '*'
+        #processors:
+        #- add_docker_metadata: ~
+- type: container
+  paths:
+    - '/var/lib/docker/containers/*/*.log'
 
 
 output.logstash:  
