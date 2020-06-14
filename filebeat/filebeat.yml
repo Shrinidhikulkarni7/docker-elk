@@ -1,0 +1,10 @@
+filebeat.inputs:
+- type: docker
+  containers.ids: '*'
+  processors:
+    - add_docker_metadata: ~
+
+
+output.logstash:  
+   hosts: ["localhost:5000"]
+
