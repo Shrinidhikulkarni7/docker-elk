@@ -77,6 +77,11 @@ services:
       - type: bind
         source: /var/run/docker.sock
         target: /var/run/docker.sock
+        read_only: true
+      - type: bind
+        source: /var/lib/docker/containers/
+        target: /var/lib/docker/containers/
+        read_only: true
     command: " ./filebeat -c filebeat.yml -e"
     depends_on:
       - elasticsearch
