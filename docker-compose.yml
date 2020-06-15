@@ -74,6 +74,9 @@ services:
       - type: bind
         source: ./filebeat/filebeat.yml
         target: /usr/share/filebeat/filebeat.yml
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
     command: " ./filebeat -c filebeat.yml -e"
     depends_on:
       - elasticsearch
